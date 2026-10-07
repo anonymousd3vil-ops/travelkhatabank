@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+html, body, #root { max-width: 100%; overflow-x: hidden; }
+body { background: #f8fafc; color: #1e293b; }
+
+@layer components {
+  .card { @apply bg-white border border-slate-200 rounded-lg p-4 min-w-0; }
+  .input { @apply w-full min-w-0 border border-slate-300 rounded-md px-3 py-2 text-sm bg-white focus:outline-none focus:border-teal-600; }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-md bg-teal-700 px-4 py-2 text-sm font-medium text-white hover:bg-teal-800 disabled:opacity-50; }
+  .btn-ghost { @apply inline-flex items-center justify-center gap-2 rounded-md border border-slate-300 px-3 py-2 text-sm hover:bg-slate-100; }
+  .label { @apply block text-xs font-medium text-slate-600 mb-1; }
+}
+
+/* Subtle travel-themed motion */
+@keyframes fly { from { transform: translateX(-10vw); } 50% { transform: translate(50vw, -14px); } to { transform: translateX(110vw); } }
+@keyframes road { to { background-position: -40px 0; } }
+@keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@keyframes bob { 50% { transform: translateY(-4px); } }
+@keyframes turn { to { transform: rotate(360deg); } }
+.plane { animation: fly 22s linear infinite; }
+.road { height: 2px; background: repeating-linear-gradient(90deg, #94a3b8 0 20px, transparent 20px 40px); animation: road 1.2s linear infinite; }
+.rise { animation: rise .4s ease both; }
+.bob { animation: bob 2.4s ease-in-out infinite; }
+.turn { animation: turn 14s linear infinite; }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
